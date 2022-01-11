@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <sys/sendfile.h>
 #include <fcntl.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -25,11 +26,11 @@ int main(int argc, char *argv[])
     perror("Socket creation failed");
     return -1;
   }
-  server.sin_port = atoi(argv[i]);
+  server.sin_port = atoi(argv[1]);
   server.sin_addr.s_addr = 0;
   
   sckt = bind(sock1, (struct sockaddr *)&server, sizeof(server));
-  if(sckt < ))
+  if(sckt < 0)
   {
     perror("Binding error");
     return -1;
@@ -46,7 +47,7 @@ int main(int argc, char *argv[])
     len = sizeof(client);
     sock2 = accept(sock1, (struct sockaddr*)&client, &len);
     printf("recieved a connection request\n");
-    if(fork()==0))
+    if(fork()==0)
     {
       break;
     }
