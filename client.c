@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     if(choice == 1)
     {
       strcpy(buf,"ls");
-      send(sock,nuf,20,0);
+      send(sock,buf,20,0);
       recv(sock,&size,sizeof(int),0);
       f = malloc(size);
       recv(sock,f,size,0);
