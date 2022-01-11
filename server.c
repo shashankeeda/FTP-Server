@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
   }
   server.sin_port = atoi(argv[1]);
   server.sin_addr.s_addr = 0;
+  server.sin_family = AF_INET;
   
   sckt = bind(sock1, (struct sockaddr *)&server, sizeof(server));
   if(sckt < 0)
